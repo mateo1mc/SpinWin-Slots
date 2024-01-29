@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpinWin Slots</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    #slot-machine {
+      text-align: center;
+      margin: auto;
+    }
+
+    .slot-container {
+      display: grid;
+      grid-template-columns: repeat(5, calc(20vw - 55px));
+      grid-template-rows: repeat(3, auto);
+      row-gap: 5px;
+      column-gap: 5px;
+      margin: auto;
+    }
+
+    .slot {
+    width: calc(10vw - 5px);
+    height: calc(10vw - 5px);
+    margin: 5px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    }
+
+    .slot img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+
+    button {
+      font-size: 1em;
+      padding: 8px 15px;
+      cursor: pointer;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #points {
+      font-size: 1em;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    #result {
+      font-size: 1em;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="slot-machine">
+    <div class="slot-container">
+      <div class="slot" id="slot1"></div>
+      <div class="slot" id="slot2"></div>
+      <div class="slot" id="slot3"></div>
+      <div class="slot" id="slot4"></div>
+      <div class="slot" id="slot5"></div>
+    </div>
+    <div class="slot-container">
+      <div class="slot" id="slot6"></div>
+      <div class="slot" id="slot7"></div>
+      <div class="slot" id="slot8"></div>
+      <div class="slot" id="slot9"></div>
+      <div class="slot" id="slot10"></div>
+    </div>
+    <div class="slot-container">
+      <div class="slot" id="slot11"></div>
+      <div class="slot" id="slot12"></div>
+      <div class="slot" id="slot13"></div>
+      <div class="slot" id="slot14"></div>
+      <div class="slot" id="slot15"></div>
+    </div>
+    <button onclick="spin()">Spin</button>
+    <div id="points">Points: <span id="currentPoints">1000</span></div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    let points = 1000;
+
+    function spin() {
+      const symbols = [
+          'seven7.jpg', 
+          'orange.jpg', 
+          'cherry.jpg', 
+          'rrush.jpg', 
+          'watermelon.jpg',
+          'lucky.jpg',
+          'lemon.jpg', 
+      ];
+
+      const spinCost = 50;
+
+      // Check if there are enough points to spin
+      if (points >= spinCost) {
+        // Deduct points for each spin
+        points -= spinCost;
+
+        // Update points display
+        document.getElementById('currentPoints').textContent = points;
+
+        // Function to get a random symbol
+        const getRandomSymbol = () => symbols[Math.floor(Math.random() * symbols.length)];
+
+        // Update the slot elements with random symbols
+        for (let i = 1; i <= 15; i++) {
+            const slotImg = document.createElement('img');
+            slotImg.src = getRandomSymbol();
+            document.getElementById(`slot${i}`).innerHTML = ''; // Clear existing content
+            document.getElementById(`slot${i}`).appendChild(slotImg);
+        }
+
+        // Apply a spin animation to the slots
+        const slots = document.querySelectorAll('.slot');
+        slots.forEach(slot => {
+          slot.style.transform = 'rotateY(360deg)';
+          setTimeout(() => {
+            slot.style.transform = 'rotateY(0deg)';
+          }, 500);
+        });
+
+        // Check for a win
+        const symbolsInRow1 = [1, 2, 3, 4, 5].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow2 = [6, 7, 8, 9, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow3 = [11, 12, 13, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
+
+        const symbolsInZ1 = [1, 2, 3, 9, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInZ2 = [6, 7, 8, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInZ3 = [9, 10, 11, 12, 13].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInZ4 = [4, 5, 6, 7, 8].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInZ5 = [3, 4, 5, 6, 7].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInZ6 = [8, 9, 10, 11, 12].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInZ7 = [1, 2, 8, 9, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInZ8 = [6, 7, 13, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
+
+        const symbolsInCol1 = [1, 6, 11].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInCol2 = [2, 7, 12].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInCol3 = [3, 8, 13].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInCol4 = [4, 9, 14].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInCol5 = [5, 10, 15].map(i => document.getElementById(`slot${i}`).textContent);
+
+        const symbolsInDiagonal1 = [1, 2, 8, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInDiagonal2 = [4, 5, 8, 11, 12].map(i => document.getElementById(`slot${i}`).textContent);
+
+        const allRows = [symbolsInRow1, symbolsInRow2, symbolsInRow3, symbolsInCol1, symbolsInCol2, symbolsInCol3, symbolsInCol4, symbolsInCol5, symbolsInDiagonal1, symbolsInDiagonal2, symbolsInZ1, symbolsInZ2, symbolsInZ3, symbolsInZ4, symbolsInZ5, symbolsInZ6, symbolsInZ7, symbolsInZ8];
+
+        const winCombinations = [
+          ['seven7.jpg', 'seven7.jpg', 'seven7.jpg', 'seven7.jpg', 'seven7.jpg'],
+          ['lemon.jpg', 'lemon.jpg', 'lemon.jpg', 'lemon.jpg', 'lemon.jpg'],
+          ['orange.jpg', 'orange.jpg', 'orange.jpg', 'orange.jpg', 'orange.jpg'],
+          ['rrush.jpg', 'rrush.jpg', 'rrush.jpg', 'rrush.jpg', 'rrush.jpg'],
+          ['cherry.jpg', 'cherry.jpg', 'cherry.jpg', 'cherry.jpg', 'cherry.jpg'],
+          ['watermelon.jpg', 'watermelon.jpg', 'watermelon.jpg', 'watermelon.jpg', 'watermelon.jpg'],
+          ['lucky.jpg', 'lucky.jpg', 'lucky.jpg', 'lucky.jpg', 'lucky.jpg'],
+        ];
+
+        if (checkForWin(allRows, winCombinations)) {
+          points += 100;
+          document.getElementById('currentPoints').textContent = points;
+          document.getElementById('result').textContent = 'Congratulations! You won!';
+        } else {
+          document.getElementById('result').textContent = 'Sorry, you lost. Try again!';
+        }
+      } else {
+        alert('Not enough points to spin. Try again!');
+      }
+
+      // Check if the game should stop
+      if (points <= 0) {
+        alert('Game over! You ran out of points.');
+        // Optionally, you can reset the game here
+        // points = 1000;
+        // document.getElementById('currentPoints').textContent = points;
+        // document.getElementById('result').textContent = '';
+      }
+    }
+
+    // Function to check for a win in rows
+    function checkForWin(rows, winCombinations) {
+      return winCombinations.some(winCombination => {
+        return rows.some(row => {
+          return row.join('') === winCombination.join('');
+      });
+    });
+  }
+  </script>
+</body>
+</html>
