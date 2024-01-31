@@ -150,29 +150,33 @@
         });
 
         // Check for a win
-        const symbolsInRow1 = [1, 2, 3, 4, 5].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInRow2 = [6, 7, 8, 9, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow1 = [6, 7, 8, 9, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow2 = [1, 2, 3, 4, 5].map(i => document.getElementById(`slot${i}`).textContent);
         const symbolsInRow3 = [11, 12, 13, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow4 = [1, 7, 13, 9, 5].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow5 = [11, 7, 3, 9, 15].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow6 = [6, 2, 3, 4, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow7 = [6, 12, 13, 14, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow8 = [1, 2, 8, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow9 = [11, 12, 8, 4, 5].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow10 = [6, 12, 8, 4, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow11 = [6, 2, 8, 14, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow12 = [1, 7, 8, 9, 5].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow13 = [11, 7, 8, 9, 15].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow14 = [1, 7, 3, 9, 5].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow15 = [11, 7, 13, 9, 15].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow16 = [6, 7, 3, 9, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow17 = [6, 7, 13, 9, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow18 = [1, 2, 13, 4, 5].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow19 = [11, 12, 3, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow20 = [1, 12, 13, 14, 5].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow21 = [11, 2, 3, 4, 15].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow22 = [6, 12, 3, 14, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow23 = [6, 2, 13, 4, 10].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow24 = [1, 12, 3, 14, 5].map(i => document.getElementById(`slot${i}`).textContent);
+        const symbolsInRow25 = [11, 2, 13, 4, 15].map(i => document.getElementById(`slot${i}`).textContent);
 
-        const symbolsInZ1 = [1, 2, 3, 9, 10].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInZ2 = [6, 7, 8, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInZ3 = [9, 10, 11, 12, 13].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInZ4 = [4, 5, 6, 7, 8].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInZ5 = [3, 4, 5, 6, 7].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInZ6 = [8, 9, 10, 11, 12].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInZ7 = [1, 2, 8, 9, 10].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInZ8 = [6, 7, 13, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
-
-        const symbolsInCol1 = [1, 6, 11].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInCol2 = [2, 7, 12].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInCol3 = [3, 8, 13].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInCol4 = [4, 9, 14].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInCol5 = [5, 10, 15].map(i => document.getElementById(`slot${i}`).textContent);
-
-        const symbolsInDiagonal1 = [1, 2, 8, 14, 15].map(i => document.getElementById(`slot${i}`).textContent);
-        const symbolsInDiagonal2 = [4, 5, 8, 11, 12].map(i => document.getElementById(`slot${i}`).textContent);
-
-        const allRows = [symbolsInRow1, symbolsInRow2, symbolsInRow3, symbolsInCol1, symbolsInCol2, symbolsInCol3, symbolsInCol4, symbolsInCol5, symbolsInDiagonal1, symbolsInDiagonal2, symbolsInZ1, symbolsInZ2, symbolsInZ3, symbolsInZ4, symbolsInZ5, symbolsInZ6, symbolsInZ7, symbolsInZ8];
+        const allRows = [symbolsInRow1, symbolsInRow2, symbolsInRow3, symbolsInRow4, symbolsInRow5, symbolsInRow6, symbolsInRow7, symbolsInRow8, symbolsInRow9, symbolsInRow10, symbolsInRow11, symbolsInRow12, symbolsInRow13, symbolsInRow14, symbolsInRow15, symbolsInRow16, symbolsInRow17, symbolsInRow18, symbolsInRow19, symbolsInRow20, symbolsInRow21, symbolsInRow22, symbolsInRow23, symbolsInRow24, symbolsInRow25];
 
         const winCombinations = [
           ['seven7.jpg', 'seven7.jpg', 'seven7.jpg', 'seven7.jpg', 'seven7.jpg'],
