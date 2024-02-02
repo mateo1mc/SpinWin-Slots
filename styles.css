@@ -62,13 +62,13 @@ button:hover {
 }
 
 #points {
-  font-size: 1em;
+  font-size: 1.2em;
   margin-top: 10px;
   color: #333;
 }
 
 #result {
-  font-size: 1em;
+  font-size: 1.2em;
   margin-top: 10px;
   font-weight: bold;
 }
