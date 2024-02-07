@@ -1,6 +1,6 @@
-# SpinWin-Slots
+# SpinWin-Slots🎰
 
-A simple slot machine game built with HTML, CSS, and JavaScript, where players can spin to win points by aligning symbols across various rows.
+A simple slot machine game built with `HTML`, `CSS`, and `JavaScript`, where players can spin to win points by aligning symbols across various rows.
 
 ## Overview
 
@@ -26,13 +26,13 @@ The SpinWin-Slots offers an interactive gaming experience with the following fea
 ## Symbols
 
 The slot machine features the following symbols (images are generated from DALL-E):
-- Seven 7️⃣
-- Orange 🍊
-- Cherry 🍒
-- Grapes 🍇
-- Watermelon 🍉
-- Lucky 🍀
-- Lemon 🍋
+- **Seven 7️⃣**
+- **Orange 🍊**
+- **Cherry 🍒**
+- **Grapes 🍇**
+- **Watermelon 🍉**
+- **Lucky 🍀**
+- **Lemon 🍋**
 
 ## Win Conditions
 
@@ -51,6 +51,9 @@ Players start with an initial balance of 1000 points and can win or lose points 
 
 ![Slot Machine Preview](SpinWin-Slots.png)
 
+<h1 align="center"> Play Now! <br>
+  <a href="https://mateo1mc.github.io/SpinWin-Slots/" target="blank"> 🎰 >> Click here to play the game! << 🎰 </a>
+</h1>
 <br>
 <!-- Connect with me -->
 <h2 align="center">Contact Me</h2>
