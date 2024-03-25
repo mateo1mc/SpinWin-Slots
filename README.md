@@ -49,7 +49,7 @@ Players start with an initial balance of 1000 points and can win or lose points 
 
 ## Preview
 
-![Slot Machine Preview](SpinWin-Slots.png)
+![Slot Machine Preview](https://github.com/mateo1mc/SpinWin-Slots/blob/0b39757220fb760f8b947d1eae2fd59aab04664b/SpinWin-Slots.png)
 
 <h1 align="center"> Play Now! <br>
   <a href="https://mateo1mc.github.io/SpinWin-Slots/" target="blank"> 🎰 >> Click here to play the game! << 🎰 </a>
