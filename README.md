@@ -31,8 +31,8 @@ The slot machine features the following symbols (images are generated from DALL-
 - **Cherry 🍒**
 - **Grapes 🍇**
 - **Watermelon 🍉**
-- **Lucky 🍀**
-- **Lemon 🍋**
+<!-- - **Lucky 🍀**
+- **Lemon 🍋**-->
 
 ## Win Conditions
 
