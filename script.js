@@ -7,8 +7,8 @@ function spin() {
       'cherry.jpg', 
       'rrush.jpg', 
       'watermelon.jpg',
-      'lucky.jpg',
-      'lemon.jpg', 
+      // 'lucky.jpg',
+      // 'lemon.jpg', 
   ];
 
   const spinCost = 50;
