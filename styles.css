@@ -72,3 +72,13 @@ button:hover {
   margin-top: 10px;
   font-weight: bold;
 }
+
+footer {
+  height: 50px;
+  background-color: #ffffff;
+  text-align: center;
+  line-height: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
