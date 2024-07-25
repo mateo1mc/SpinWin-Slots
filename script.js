@@ -41,6 +41,9 @@ function spin() {
 
     // Check for a win
     checkWin();
+  } else {
+    // If not enough points to spin, end the game
+    endGame();
   }
 }
 
@@ -87,15 +90,35 @@ function checkWin() {
     const resultElement = document.getElementById('result');
     if (isWin) {
       resultElement.textContent = 'Congratulations! You win!';
-      points +=100;
+      points += 100;
       document.getElementById('currentPoints').textContent = points;
-  } else {
+    } else {
       resultElement.textContent = 'Better luck next time!';
-  }
+    }
 
     // Check if the game should stop
     if (points <= 0) {
-      alert('Game over! You ran out of points.\n Refres to Play Again');
+      endGame();
     }
+}
 
+function endGame() {
+  const button = document.querySelector('button');
+  button.textContent = 'Start New Game';
+  button.onclick = startNewGame;
+  document.getElementById('result').textContent = 'Game over! You ran out of points.';
+}
+
+function startNewGame() {
+  points = 1000;
+  document.getElementById('currentPoints').textContent = points;
+  document.getElementById('result').textContent = '';
+  const button = document.querySelector('button');
+  button.textContent = 'Spin';
+  button.onclick = spin;
+
+  // Clear slot images
+  for (let i = 1; i <= 15; i++) {
+    document.getElementById(`slot${i}`).innerHTML = '';
+  }
 }
