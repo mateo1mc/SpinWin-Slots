@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Preload slot images (fast first spin) -->
   <link rel="preload" as="image" href="assets/seven7.jpg" />
   <link rel="preload" as="image" href="assets/orange.jpg" />
   <link rel="preload" as="image" href="assets/cherry.jpg" />
@@ -31,10 +30,16 @@
         <h1 class="brand-title">SpinWin <em>Slots</em></h1>
       </div>
 
-      <div class="balance-chip" aria-label="Balance">
-        <span class="chip-label">BALANCE</span>
-        <span class="chip-value" id="currentPoints">1000</span>
-        <span class="chip-unit">PTS</span>
+      <div class="top-actions">
+        <button id="settingsBtn" class="icon-btn" aria-label="Open settings" title="Settings">
+          ⚙
+        </button>
+
+        <div class="balance-chip" aria-label="Balance">
+          <span class="chip-label">BALANCE</span>
+          <span class="chip-value" id="currentPoints">1000</span>
+          <span class="chip-unit">PTS</span>
+        </div>
       </div>
     </header>
 
@@ -63,19 +68,77 @@
     <footer id="bottom-bar">
       <div class="stat-chip" aria-label="Win reward">
         <span class="chip-label">WIN</span>
-        <span class="chip-value gold">+100</span>
+        <span class="chip-value gold" id="winValue">+100</span>
         <span class="chip-unit">PTS</span>
       </div>
 
       <button id="spinBtn" aria-label="Spin the reels — press Space">
         <span class="btn-glyph" aria-hidden="true">◎</span>
         <span class="btn-text">SPIN</span>
-        <span class="btn-hint">−50 pts · SPACE</span>
+        <span class="btn-hint" id="spinHint">−50 pts · SPACE</span>
       </button>
 
       <div id="result" role="status" aria-live="polite"></div>
     </footer>
 
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true"></div>
+
+  <div id="settingsModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div id="settingsTitle" class="modal-title">Settings</div>
+          <div class="modal-sub">Tune gameplay + performance.</div>
+        </div>
+        <button id="closeSettingsBtn" class="icon-btn" aria-label="Close settings">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-grid">
+          <label class="field">
+            <span>Spin Cost</span>
+            <input id="spinCostInput" type="number" min="1" step="1" value="50" />
+          </label>
+
+          <label class="field">
+            <span>Base Win</span>
+            <input id="winRewardInput" type="number" min="1" step="1" value="100" />
+          </label>
+
+          <label class="field">
+            <span>Win Chance (%)</span>
+            <input id="winChanceInput" type="number" min="0" max="100" step="1" value="22" />
+          </label>
+
+          <label class="field toggle">
+            <span>Sound</span>
+            <input id="soundToggle" type="checkbox" checked />
+          </label>
+
+          <label class="field toggle">
+            <span>Particles</span>
+            <input id="particlesToggle" type="checkbox" checked />
+          </label>
+        </div>
+
+        <div class="modal-note">
+          Pro tip: 20–30% win chance feels “arcade fun”. 8–12% feels “casino harsh”.
+        </div>
+      </div>
+
+      <div class="modal-foot">
+        <button id="resetBtn" class="ghost-btn">Reset</button>
+        <button id="saveBtn" class="primary-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-credit">
+    © <span id="year"></span>
+    <a href="https://morecodes.in" target="_blank" rel="noopener noreferrer">morecodes.in</a>
   </div>
 
   <script src="script.js" defer></script>
