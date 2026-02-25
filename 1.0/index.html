@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpinWin-Slots</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script type="text/javascript">
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+        if (e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
+            (e.ctrlKey && e.key === 'U')) {
+            e.preventDefault();
+        }
+    });
+  </script>
+</head>
+<body>
+  <div id="slot-machine">
+    <div class="slot-container">
+      <div class="slot" id="slot1"></div>
+      <div class="slot" id="slot2"></div>
+      <div class="slot" id="slot3"></div>
+      <div class="slot" id="slot4"></div>
+      <div class="slot" id="slot5"></div>
+    </div>
+    <div class="slot-container">
+      <div class="slot" id="slot6"></div>
+      <div class="slot" id="slot7"></div>
+      <div class="slot" id="slot8"></div>
+      <div class="slot" id="slot9"></div>
+      <div class="slot" id="slot10"></div>
+    </div>
+    <div class="slot-container">
+      <div class="slot" id="slot11"></div>
+      <div class="slot" id="slot12"></div>
+      <div class="slot" id="slot13"></div>
+      <div class="slot" id="slot14"></div>
+      <div class="slot" id="slot15"></div>
+    </div>
+    <button onclick="spin()">Spin</button>
+    <div id="points">Points: <span id="currentPoints">1000</span></div>
+    <div id="result"></div>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="year"></span> <a href="https://www.linkedin.com/in/mateo1mc" target="_blank">Mateo Çela</a>. All rights reserved.</p>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>

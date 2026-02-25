@@ -1,57 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SpinWin-Slots</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <script type="text/javascript">
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>SpinWin Slots</title>
 
-    document.addEventListener('keydown', function(e) {
-        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-        if (e.key === 'F12' || 
-            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
-            (e.ctrlKey && e.key === 'U')) {
-            e.preventDefault();
-        }
-    });
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload slot images (fast first spin) -->
+  <link rel="preload" as="image" href="assets/seven7.jpg" />
+  <link rel="preload" as="image" href="assets/orange.jpg" />
+  <link rel="preload" as="image" href="assets/cherry.jpg" />
+  <link rel="preload" as="image" href="assets/rrush.jpg" />
+  <link rel="preload" as="image" href="assets/watermelon.jpg" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="slot-machine">
-    <div class="slot-container">
-      <div class="slot" id="slot1"></div>
-      <div class="slot" id="slot2"></div>
-      <div class="slot" id="slot3"></div>
-      <div class="slot" id="slot4"></div>
-      <div class="slot" id="slot5"></div>
-    </div>
-    <div class="slot-container">
-      <div class="slot" id="slot6"></div>
-      <div class="slot" id="slot7"></div>
-      <div class="slot" id="slot8"></div>
-      <div class="slot" id="slot9"></div>
-      <div class="slot" id="slot10"></div>
-    </div>
-    <div class="slot-container">
-      <div class="slot" id="slot11"></div>
-      <div class="slot" id="slot12"></div>
-      <div class="slot" id="slot13"></div>
-      <div class="slot" id="slot14"></div>
-      <div class="slot" id="slot15"></div>
-    </div>
-    <button onclick="spin()">Spin</button>
-    <div id="points">Points: <span id="currentPoints">1000</span></div>
-    <div id="result"></div>
+
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div id="flash-overlay" aria-hidden="true"></div>
+
+  <div id="app">
+
+    <header id="top-bar">
+      <div class="brand" aria-label="SpinWin Slots">
+        <span class="brand-icon" aria-hidden="true">♛</span>
+        <h1 class="brand-title">SpinWin <em>Slots</em></h1>
+      </div>
+
+      <div class="balance-chip" aria-label="Balance">
+        <span class="chip-label">BALANCE</span>
+        <span class="chip-value" id="currentPoints">1000</span>
+        <span class="chip-unit">PTS</span>
+      </div>
+    </header>
+
+    <main id="game-area">
+      <div id="slot-grid" aria-label="Slot grid">
+        <div class="slot" id="slot1"></div>
+        <div class="slot" id="slot2"></div>
+        <div class="slot" id="slot3"></div>
+        <div class="slot" id="slot4"></div>
+        <div class="slot" id="slot5"></div>
+        <div class="slot" id="slot6"></div>
+        <div class="slot" id="slot7"></div>
+        <div class="slot" id="slot8"></div>
+        <div class="slot" id="slot9"></div>
+        <div class="slot" id="slot10"></div>
+        <div class="slot" id="slot11"></div>
+        <div class="slot" id="slot12"></div>
+        <div class="slot" id="slot13"></div>
+        <div class="slot" id="slot14"></div>
+        <div class="slot" id="slot15"></div>
+      </div>
+
+      <div id="win-row-label" aria-live="polite"></div>
+    </main>
+
+    <footer id="bottom-bar">
+      <div class="stat-chip" aria-label="Win reward">
+        <span class="chip-label">WIN</span>
+        <span class="chip-value gold">+100</span>
+        <span class="chip-unit">PTS</span>
+      </div>
+
+      <button id="spinBtn" aria-label="Spin the reels — press Space">
+        <span class="btn-glyph" aria-hidden="true">◎</span>
+        <span class="btn-text">SPIN</span>
+        <span class="btn-hint">−50 pts · SPACE</span>
+      </button>
+
+      <div id="result" role="status" aria-live="polite"></div>
+    </footer>
+
   </div>
 
-  <footer>
-    <p>&copy; <span id="year"></span> <a href="https://www.linkedin.com/in/mateo1mc" target="_blank">Mateo Çela</a>. All rights reserved.</p>
-  </footer>
-  
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
