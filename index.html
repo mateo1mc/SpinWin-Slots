@@ -31,11 +31,9 @@
       </div>
 
       <div class="top-actions">
-        <button id="settingsBtn" class="icon-btn" aria-label="Open settings" title="Settings">
-          ⚙
-        </button>
+        <button id="settingsBtn" class="icon-btn" aria-label="Open settings" title="Settings">⚙</button>
 
-        <div class="balance-chip" aria-label="Balance">
+        <div class="balance-chip" aria-label="Balance" id="balanceChip">
           <span class="chip-label">BALANCE</span>
           <span class="chip-value" id="currentPoints">1000</span>
           <span class="chip-unit">PTS</span>
@@ -43,8 +41,11 @@
       </div>
     </header>
 
+    <!-- Low balance warning banner -->
+    <div id="low-balance-bar" aria-live="polite" aria-atomic="true"></div>
+
     <main id="game-area">
-      <div id="slot-grid" aria-label="Slot grid">
+      <div id="slot-grid" aria-label="Slot machine reels">
         <div class="slot" id="slot1"></div>
         <div class="slot" id="slot2"></div>
         <div class="slot" id="slot3"></div>
@@ -62,7 +63,7 @@
         <div class="slot" id="slot15"></div>
       </div>
 
-      <div id="win-row-label" aria-live="polite"></div>
+      <div id="win-row-label" aria-live="polite" aria-atomic="true"></div>
     </main>
 
     <footer id="bottom-bar">
@@ -78,7 +79,7 @@
         <span class="btn-hint" id="spinHint">−50 pts · SPACE</span>
       </button>
 
-      <div id="result" role="status" aria-live="polite"></div>
+      <div id="result" role="status" aria-live="polite" aria-atomic="true"></div>
     </footer>
 
   </div>
@@ -100,17 +101,22 @@
         <div class="form-grid">
           <label class="field">
             <span>Spin Cost</span>
-            <input id="spinCostInput" type="number" min="1" step="1" value="50" />
+            <input id="spinCostInput" type="number" min="1" step="1" value="50" inputmode="numeric" />
           </label>
 
           <label class="field">
             <span>Base Win</span>
-            <input id="winRewardInput" type="number" min="1" step="1" value="100" />
+            <input id="winRewardInput" type="number" min="1" step="1" value="100" inputmode="numeric" />
           </label>
 
           <label class="field">
             <span>Win Chance (%)</span>
-            <input id="winChanceInput" type="number" min="0" max="100" step="1" value="22" />
+            <input id="winChanceInput" type="number" min="0" max="100" step="1" value="22" inputmode="numeric" />
+          </label>
+
+          <label class="field">
+            <span>Starting Balance</span>
+            <input id="startBalanceInput" type="number" min="1" step="1" value="1000" inputmode="numeric" />
           </label>
 
           <label class="field toggle">
@@ -125,7 +131,7 @@
         </div>
 
         <div class="modal-note">
-          Pro tip: 20–30% win chance feels “arcade fun”. 8–12% feels “casino harsh”.
+          Pro tip: 20–30% win chance feels "arcade fun". 8–12% feels "casino harsh".
         </div>
       </div>
 
