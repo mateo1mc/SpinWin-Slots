@@ -105,16 +105,6 @@
           </label>
 
           <label class="field">
-            <span>Base Win</span>
-            <input id="winRewardInput" type="number" min="1" step="1" value="100" inputmode="numeric" />
-          </label>
-
-          <label class="field">
-            <span>Win Chance (%)</span>
-            <input id="winChanceInput" type="number" min="0" max="100" step="1" value="22" inputmode="numeric" />
-          </label>
-
-          <label class="field">
             <span>Starting Balance</span>
             <input id="startBalanceInput" type="number" min="1" step="1" value="1000" inputmode="numeric" />
           </label>
@@ -131,12 +121,13 @@
         </div>
 
         <div class="modal-note">
-          Pro tip: 20–30% win chance feels "arcade fun". 8–12% feels "casino harsh".
+          Demo points only. Wins are generated naturally from weighted reels and the paytable.
         </div>
       </div>
 
       <div class="modal-foot">
-        <button id="resetBtn" class="ghost-btn">Reset</button>
+        <button id="resetBalanceBtn" class="ghost-btn">Reset Balance</button>
+        <button id="resetBtn" class="ghost-btn">Reset Game</button>
         <button id="saveBtn" class="primary-btn">Save</button>
       </div>
     </div>
